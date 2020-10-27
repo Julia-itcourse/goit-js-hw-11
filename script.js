@@ -1,48 +1,48 @@
 //? _________________Color Change________________________________________
 
-// const colors = [
-//   "#FFFFFF",
-//   "#2196F3",
-//   "#4CAF50",
-//   "#FF9800",
-//   "#009688",
-//   "#795548",
-// ]
+const colors = [
+  "#FFFFFF",
+  "#2196F3",
+  "#4CAF50",
+  "#FF9800",
+  "#009688",
+  "#795548",
+]
 
-// const refs = {
-//   body: document.querySelector("body"),
-//   startBtn: document.querySelector('[data-action="start"]'),
-//   stopBtn: document.querySelector('[data-action="stop"]'),
-// }
-// let timerId = null
+const refs = {
+  body: document.querySelector("body"),
+  startBtn: document.querySelector('[data-action="start"]'),
+  stopBtn: document.querySelector('[data-action="stop"]'),
+}
+let timerId = null
 
-// const randomIntegerFromInterval = (min, max) => {
-//   return Math.floor(Math.random() * (max - min + 1) + min)
-// }
+const randomIntegerFromInterval = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
 
-// const colorChange = () => {
-//   const randomBgColor = colors[randomIntegerFromInterval(0, colors.length)]
-//   refs.body.style.backgroundColor = `${randomBgColor}`
-// }
+const colorChange = () => {
+  const randomBgColor = colors[randomIntegerFromInterval(0, colors.length)]
+  refs.body.style.backgroundColor = `${randomBgColor}`
+}
 
-// const stopColorChange = () => {
-//   if (timerId !== null) {
-//     clearInterval(timerId)
-//   }
-// }
+const stopColorChange = () => {
+  if (timerId !== null) {
+    clearInterval(timerId)
+  }
+}
 
-// refs.startBtn.addEventListener("click", () => {
-//   console.log("startBtn")
-//   timerId = setInterval(colorChange, 1000)
-//   refs.startBtn.disabled = true
-//   refs.startBtn.style.backgroundColor = "gray"
-// })
+refs.startBtn.addEventListener("click", () => {
+  console.log("startBtn")
+  timerId = setInterval(colorChange, 1000)
+  refs.startBtn.disabled = true
+  refs.startBtn.style.backgroundColor = "gray"
+})
 
-// refs.stopBtn.addEventListener("click", () => {
-//   stopColorChange()
-//   refs.startBtn.disabled = false
-//   refs.startBtn.style.backgroundColor = "#8add7f"
-// })
+refs.stopBtn.addEventListener("click", () => {
+  stopColorChange()
+  refs.startBtn.disabled = false
+  refs.startBtn.style.backgroundColor = "#8add7f"
+})
 
 //? _____________________Promises_______________________________________________
 //* Task 1
@@ -112,46 +112,46 @@
 
 //?  _____________________Timer_________________________________________________
 
-const refs = {
-  sec: document.querySelector('[data-value="secs"]'),
-  min: document.querySelector('[data-value="mins"]'),
-  hour: document.querySelector('[data-value="hours"]'),
-  day: document.querySelector('[data-value="days"]'),
-}
+// const refs = {
+//   sec: document.querySelector('[data-value="secs"]'),
+//   min: document.querySelector('[data-value="mins"]'),
+//   hour: document.querySelector('[data-value="hours"]'),
+//   day: document.querySelector('[data-value="days"]'),
+// }
 
-const timer = {
-  start() {
-    const targetTime = new Date("Sept 01, 2020")
+// const timer = {
+//   start() {
+//     const targetTime = new Date("Dec 31, 2020")
 
-    setInterval(() => {
-      const currentTime = Date.now()
+//     setInterval(() => {
+//       const currentTime = Date.now()
 
-      const delta = targetTime - currentTime
+//       const delta = targetTime - currentTime
 
-      updateTime(delta)
-    }, 1000)
-  },
-}
+//       updateTime(delta)
+//     }, 1000)
+//   },
+// }
 
-const updateTime = (time) => {
-  const days = pad(Math.floor(time / (1000 * 60 * 60 * 24)))
-  const hours = pad(
-    Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-  )
-  const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)))
-  const secs = pad(Math.floor((time % (1000 * 60)) / 1000))
-  updateValues(secs, mins, hours, days)
-}
+// const updateTime = (time) => {
+//   const days = pad(Math.floor(time / (1000 * 60 * 60 * 24)))
+//   const hours = pad(
+//     Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+//   )
+//   const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)))
+//   const secs = pad(Math.floor((time % (1000 * 60)) / 1000))
+//   updateValues(secs, mins, hours, days)
+// }
 
-const updateValues = (secs, mins, hours, days) => {
-  refs.sec.textContent = secs
-  refs.min.textContent = mins
-  refs.hour.textContent = hours
-  refs.day.textContent = days
-}
+// const updateValues = (secs, mins, hours, days) => {
+//   refs.sec.textContent = secs
+//   refs.min.textContent = mins
+//   refs.hour.textContent = hours
+//   refs.day.textContent = days
+// }
 
-const pad = (value) => {
-  return String(value).padStart(2, "0")
-}
+// const pad = (value) => {
+//   return String(value).padStart(2, "0")
+// }
 
-timer.start()
+// timer.start()
